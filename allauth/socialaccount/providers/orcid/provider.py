@@ -4,7 +4,7 @@ from allauth.socialaccount.providers.oauth2.provider import OAuth2Provider
 
 
 class Scope(object):
-    USERINFO_PROFILE = u'/authenticate'
+    USERINFO_PROFILE = '/authenticate'
 
 
 class OrcidAccount(ProviderAccount):
@@ -58,5 +58,5 @@ def extract_from_dict(data, path):
         for key in path:
             value = value[key]
         return value
-    except (KeyError, IndexError):
+    except (KeyError, IndexError, TypeError):
         return ''
